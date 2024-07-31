@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Order Confirmation">
+        <lightning-button label="Confirm Order" onclick={handleConfirmOrder} class="slds-m-around_medium"></lightning-button>
+        <template if:true={message}>
+            <div class="slds-text-color_error slds-m-around_medium">{message}</div>
+        </template>
+    </lightning-card>
+</template>

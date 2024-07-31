@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Order Summary">
+        <template if:true={order}>
+            <div class="slds-m-around_medium">
+                <lightning-layout horizontal-align="spread">
+                    <lightning-layout-item>
+                        <h2>Order Number: {order.OrderNumber}</h2>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <h3>Customer: {order.Account.Name}</h3>
+                    </lightning-layout-item>
+                    <lightning-layout-item>
+                        <h3>Total Quantity: {order.Total_Quantity__c}</h3>
+                    </lightning-layout-item>
+                </lightning-layout>
+                
+                <lightning-datatable
+                    key-field="id"
+                    columns={columns}
+                    data={orderItems}
+                    hide-checkbox-column
+                    class="slds-m-top_medium"
+                >
+                </lightning-datatable>
+            </div>
+        </template>
+        <template if:true={error}>
+            <div class="slds-text-color_error slds-m-around_medium">
+                {error}
+            </div>
+        </template>
+    </lightning-card>
+</template>
